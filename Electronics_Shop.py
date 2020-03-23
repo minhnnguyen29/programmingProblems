@@ -19,13 +19,11 @@ def getMoneySpent(keyboards, drives, b):
     return total
 
 def findTotal(outerloop, innerloop, b):
-    total = 0
+    total = -1 #default, that could be spent (in case can't be updated, can't buy anything)
     for i in range(len(outerloop)): 
         for j in range(len(innerloop)):
             if outerloop[i] + innerloop[j] <= b: 
                 total = max(total, outerloop[i] + innerloop[j])
-    if total == 0: #if total does not satisfy and not change ==> no sum was smaller than b
-        return -1 
     return total
 
 
